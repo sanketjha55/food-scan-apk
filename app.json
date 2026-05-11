@@ -1,0 +1,74 @@
+{
+  "expo": {
+    "name": "Food Scanner",
+    "slug": "food-scanner",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTabletMode": true,
+      "bundleIdentifier": "com.foodscanner.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses your camera to scan food items and analyze their nutritional content.",
+        "NSMicrophoneUsageDescription": "This app uses your microphone to provide voice feedback about scanned foods.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to select food images.",
+        "NSPhotoLibraryAddUsageDescription": "This app needs permission to save food scan images."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.foodscanner.app",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "MICROPHONE",
+        "INTERNET",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "useNextNotificationApi": true
+    },
+    "web": {
+      "favicon": "./src/assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera to scan food items.",
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
+      ]
+    ],
+    "permissions": [
+      "CAMERA",
+      "MICROPHONE",
+      "INTERNET",
+      "READ_EXTERNAL_STORAGE",
+      "WRITE_EXTERNAL_STORAGE"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c7b289c4-e6c2-49d0-ad88-324bbb3c51ff"
+      }
+    },
+    "owner": "sanketjha8271"
+  }
+}
