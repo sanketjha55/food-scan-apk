@@ -44,20 +44,28 @@ jobs:
         working-directory: ./android
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease
+          ./gradlew clean assembleRelease --stacktrace
+      
+      - name: Check Build Output
+        run: |
+          ls -la android/app/build/outputs/apk/ 2>/dev/null || echo "APK output not found"
+          find . -name "app-*.apk" -type f 2>/dev/null || echo "No APK files found"
 
       - name: Upload Android APK
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: android-apk
-          path: android/app/build/outputs/apk/release/app-release.apk
+          path: android/app/build/outputs/apk/**/app-*.apk
+          if-no-files-found: warn
           retention-days: 30
 
       - name: Create Release
         if: success()
         uses: softprops/action-gh-release@v1
         with:
-          files: android/app/build/outputs/apk/release/app-release.apk
+          files: |
+            android/app/build/outputs/apk/**/app-*.apk
           tag_name: v1.0.0-${{ github.run_number }}
           draft: false
           prerelease: false
