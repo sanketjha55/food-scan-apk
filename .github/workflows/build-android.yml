@@ -46,7 +46,10 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --version
-          ./gradlew clean assembleRelease -x test --debug 2>&1 | tail -100
+          ./gradlew clean assembleRelease -x test --debug > build.log 2>&1
+          build_exit_code=$?
+          tail -100 build.log
+          exit $build_exit_code
       
       - name: Check Build Output
         run: |
