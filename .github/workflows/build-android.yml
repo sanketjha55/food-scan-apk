@@ -61,14 +61,8 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
-      - name: Create Release
-        if: success()
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            android/app/build/outputs/apk/**/app-*.apk
-          tag_name: v1.0.0-${{ github.run_number }}
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: List APK Files
+        run: |
+          echo "=== APK Files Generated ==="
+          find . -name "*.apk" -type f 2>/dev/null | head -20
+          echo "APK ready for download from Artifacts section!"
