@@ -31,8 +31,10 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
         with:
-          api-level: 33
-          build-tools-version: '33.0.0'
+          packages: |
+            platform-tools
+            platforms;android-34
+            build-tools;34.0.0
 
       - name: Install dependencies
         run: npm install
@@ -61,9 +63,8 @@ jobs:
         with:
           name: android-apk
           path: |
-            android/app/build/outputs/apk/**/release/**/*.apk
-            android/app/build/outputs/apk/**/debug/**/*.apk
-            android/app/build/outputs/bundle/**/release/*.aab
+            android/**/build/outputs/**/*.apk
+            android/**/build/outputs/**/*.aab
           if-no-files-found: warn
           retention-days: 30
 

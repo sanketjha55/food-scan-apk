@@ -1,0 +1,20 @@
+#!/bin/bash
+# Build APK using Appetize.io (No authentication needed for web interface)
+
+echo "📱 Building APK for Appetize..."
+echo ""
+echo "Upload options:"
+echo "1. ZIP Upload: https://appetize.io/upload"
+echo "2. GitHub: Connect your repo"
+echo "3. APK File: Upload d:\FoodScanner-App.zip"
+echo ""
+echo "Steps:"
+echo "1. Go to: https://appetize.io/upload"
+echo "2. Upload: d:\FoodScanner-App.zip OR GitHub link"
+echo "3. Wait 5 minutes"
+echo "4. Get web-based test link"
+echo "5. Share anyone to test"
+echo ""
+echo "For Play Store APK build, use:"
+echo "cd d:\ntcc\android"
+echo "gradlew assembleRelease"
