@@ -50,6 +50,15 @@ jobs:
           build_exit_code=$?
           tail -100 build.log
           exit $build_exit_code
+
+      - name: Upload Build Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-build-log
+          path: android/build.log
+          if-no-files-found: warn
+          retention-days: 30
       
       - name: Check Build Output
         run: |
